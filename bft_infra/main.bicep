@@ -53,4 +53,13 @@ module sslBinding 'modules/ssl-binding.bicep' = {
   }
 }
 
+module logging 'modules/logging.bicep' = {
+  name: 'loggingDeployment'
+  scope: rg
+  params: {
+    location: location
+    appServiceName: appService.outputs.appServiceName
+  }
+}
+
 

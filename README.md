@@ -74,7 +74,8 @@ Azure Subscription
     ├── App Service               (Python 3.11, system-assigned managed identity)
     ├── Key Vault                 (RBAC-enabled, stores email API key and CAPTCHA secret key)
     ├── Managed Certificate       (free TLS certificate for custom domain)
-    └── SSL Binding               (SNI-based HTTPS enforcement)
+    ├── SSL Binding               (SNI-based HTTPS enforcement)
+    └── Log Analytics Workspace   (stores App Service HTTP, console and platform logs)
 ```
 
 ### Structure
@@ -86,9 +87,10 @@ bft_infra/
 ├── ci.bicepparam                   # CI/CD parameters — pulls secrets from Key Vault at deploy time
 ├── modules/
 │   ├── appservice.bicep            # App Service Plan + App Service with managed identity
-│   ├── keyvault.bicep              # Key Vault + secret + role assignment for App Service identity
+│   ├── keyvault.bicep              # Key Vault + secrets + role assignment for App Service identity
 │   ├── certificates.bicep          # Hostname binding + managed TLS certificate
-│   └── ssl-binding.bicep           # SNI SSL binding using certificate thumbprint
+│   ├── ssl-binding.bicep           # SNI SSL binding using certificate thumbprint
+│   └── logging.bicep               # Log Analytics workspace + diagnostic settings
 └── .github/
     └── workflows/
         └── deploy-infra.yml        # CI/CD pipeline — validates and deploys Bicep on push to main
@@ -103,6 +105,8 @@ bft_infra/
 **GitHub Actions authentication** — Deployment pipelines authenticate to Azure using OpenID Connect (OIDC) via a federated credential on an Entra ID app registration. No Azure credentials are stored in GitHub. A custom least-privilege role defines exactly what the pipeline is permitted to do.
 
 **TLS** — A free Azure-managed certificate is provisioned for the custom domain. The certificate lifecycle (issuance, renewal) is handled entirely by Azure.
+
+**Observability** — A Log Analytics workspace collects App Service HTTP logs, console logs, and platform logs. HTTP logs give a structured, queryable history of all requests and status codes. Console logs capture application-level output (equivalent to the uvicorn log stream). Platform logs record infrastructure events such as restarts and configuration changes.
 
 **Bot protection** — The contact form is protected by Cloudflare Turnstile. The widget runs a passive browser challenge and only enables the submit button on success. The token is verified server-side against the Cloudflare API before any email is sent. The CAPTCHA secret key is stored in Key Vault and never exposed in source code.
 

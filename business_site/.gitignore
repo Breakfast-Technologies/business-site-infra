@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+errors.txt
+walkthrough.html
+.claude/
+.DS_Store

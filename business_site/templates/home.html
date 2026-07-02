@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block body_class %}home-page{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-inner">
+        <h1>Achieve optimal business velocity<br>with expert <span class="nowrap">Cloud Infrastructure.</span></h1>
+        <p>Get your architecture <a href="#contact" class="cta-highlight">right now</a></p>
+    </div>
+</section>
+
+<section class="strategy" id="strategy">
+    <div class="section-label">
+        <span>Journey of your product - from whiteboard to production</span>
+        <span>4 PHASES</span>
+    </div>
+    <div class="phases">
+        <div class="phase">
+            <span class="phase-number">01</span>
+            <div class="phase-img"><img src="/static/phase-analyse.png" alt="Analyse"></div>
+            <h3>Analyse</h3>
+            <p>Every constraint. Every stakeholder. Every edge case, before anything else. We map your business context, traffic patterns, compliance requirements, and operational realities so nothing surfaces as a surprise in production.</p>
+        </div>
+        <div class="phase">
+            <span class="phase-number">02</span>
+            <div class="phase-img"><img src="/static/phase-design.png" alt="Design"></div>
+            <h3>Design</h3>
+            <p>Multiple candidate architectures, put through rigorous review. Trade-offs are documented, costs are modelled, and failure modes are stress-tested until one optimal solution emerges: not the most fashionable one, but the right one for your specific context.</p>
+        </div>
+        <div class="phase">
+            <span class="phase-number">03</span>
+            <div class="phase-img"><img src="/static/phase-specify.png" alt="Specify"></div>
+            <h3>Specify</h3>
+            <p>Airtight specs, deployment plans, and test criteria, locked before build begins. Every component is documented, rollback procedures are defined, and every engineer knows exactly what done looks like before a single line of infrastructure is written.</p>
+        </div>
+        <div class="phase">
+            <span class="phase-number">04</span>
+            <div class="phase-img"><img src="/static/phase-build.png" alt="Build"></div>
+            <h3>Build</h3>
+            <p>With airtight specs in hand, we build with precision. Every component is tested, every configuration is version-controlled, and documentation is written alongside the code. What ships is clean, maintainable, and production-ready from day one.</p>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="section-label services-label">
+        <span>What we do — end to end</span>
+        <span>3 SERVICES</span>
+    </div>
+    <div class="services">
+        <div class="service">
+            <h2>Cloud Infrastructure</h2>
+            <p>Discover true capacity to scale smoothly, stay resilient to traffic surges, and secure your operations with expert-designed cloud infrastructure.</p>
+            <p>We build intelligent, performance-oriented environments that grow with your business, protect your data, and ensure high availability so your applications stay responsive and reliable - no matter the demand.</p>
+            <a href="/about#cloud-infrastructure" class="service-link">Explore →</a>
+        </div>
+        <div class="service">
+            <h2>Kubernetes Management</h2>
+            <p>Hand us your container orchestration burden and we'll build you the smoothest-operating, highly available cluster ecosystem - with precise observability, hardened security, and rapid scalability.</p>
+            <p>We put our seasoned expertise to work optimising workload configurations to deliver maximum functional efficiency.</p>
+            <a href="/about#kubernetes-management" class="service-link">Explore →</a>
+        </div>
+        <div class="service">
+            <h2>DevOps Support</h2>
+            <p>Bridge the gap between development and operations with DevOps practices built for scale. From CI/CD pipeline design and infrastructure automation to security integration and team enablement, we embed the processes and tooling that turn slow, fragile releases into fast, reliable deployments.</p>
+            <p>Whether you're starting from scratch or modernising an existing setup, our DevOps consulting and managed services are tailored to where your team is today and built for where it needs to go.</p>
+            <a href="/about#devops-support" class="service-link">Explore →</a>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="contact-heading">Let's get talking!</h2>
+    <div class="contact-form-col">
+        <form method="post" action="/contact">
+            <input type="text" name="name" placeholder="name" required>
+            <input type="email" name="email" placeholder="email address" required>
+            <textarea name="message" placeholder="tell us what you'd like, let's get started" rows="6" required></textarea>
+            <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-callback="onTurnstileSuccess"></div>
+            <button type="submit" id="submit-btn" disabled>Send</button>
+        </form>
+    </div>
+    <div class="contact-info-col">
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@breakfasttechnologies.com">info@breakfasttechnologies.com</a></p>
+        <p><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/company/breakfasttechnologies/" target="_blank">Breakfast Technologies</a></p>
+    </div>
+</section>
+
+{% endblock %}

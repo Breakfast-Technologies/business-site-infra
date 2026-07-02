@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}Breakfast Technologies — cloud infrastructure consulting and Kubernetes management for startups and scale-ups.{% endblock %}">
+    <title>{% block title %}Breakfast Technologies{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}?v=2">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <header>
+        <a href="/" class="logo">
+            <img src="{{ url_for('static', path='breakfast-technologies-logo.png') }}" alt="Breakfast Technologies icon">
+            <span class="logo-text">
+                <span class="logo-breakfast">Breakfast</span>
+                <span class="logo-technologies">Technologies</span>
+            </span>
+        </a>
+        <input type="checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="hamburger">&#9776;</label>
+        <nav>
+            <a href="/#services">Services</a>
+            <a href="/#strategy">Strategy</a>
+            <a href="/about">About</a>
+            <a href="/#contact" class="nav-cta">Let's Ship</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Breakfast Technologies</p>
+    </footer>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>

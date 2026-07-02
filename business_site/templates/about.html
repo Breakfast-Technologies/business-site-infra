@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}About Us | Breakfast Technologies{% endblock %}
+
+{% block meta_description %}Breakfast Technologies is a cloud infrastructure and Kubernetes consulting firm helping startups and scale-ups ship production-ready systems with confidence.{% endblock %}
+
+{% block body_class %}about-page{% endblock %}
+
+{% block content %}
+<section class="about-hero">
+    <h1>Cloud Infrastructure & Kubernetes Consulting for Teams That Ship</h1>
+    <p>Breakfast Technologies partners with startups and scale-ups to design, build, and operate infrastructure that scales with your ambitions. We engineer for high availability and low latency from day one, because your users expect fast, and your business can't afford down. From first deployment to full production scale, we handle the infrastructure so your team can stay focused on the product.</p>
+</section>
+
+<section class="about-service" id="cloud-infrastructure">
+    <h2>Cloud Infrastructure</h2>
+    <div class="about-tech-strip">
+        <h4>Technologies We Work With</h4>
+        <div class="about-tech-logos">
+            <span class="about-tech-logo" data-tooltip="AWS"><img src="{{ url_for('static', path='aws.png') }}" alt="AWS"></span>
+            <span class="about-tech-logo" data-tooltip="Microsoft Azure"><img src="{{ url_for('static', path='azure.svg') }}" alt="Azure"></span>
+            <span class="about-tech-logo" data-tooltip="Google Cloud"><img src="{{ url_for('static', path='gcp.svg') }}" alt="GCP"></span>
+            <span class="about-tech-logo" data-tooltip="Terraform"><img src="{{ url_for('static', path='terraform.png') }}" alt="Terraform"></span>
+            <span class="about-tech-logo" data-tooltip="Ansible"><img src="{{ url_for('static', path='ansible.svg') }}" alt="Ansible"></span>
+            <span class="about-tech-logo" data-tooltip="Falco"><img src="{{ url_for('static', path='falco.png') }}" alt="Falco"></span>
+            <span class="about-tech-logo" data-tooltip="Prometheus"><img src="{{ url_for('static', path='prometheus.png') }}" alt="Prometheus"></span>
+        </div>
+    </div>
+    <div class="about-sub-items">
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-cloud"></i></div>
+            <div class="about-sub-content">
+                <h3>AWS Solutions Architecture</h3>
+                <p>We bring certified solutions architect expertise to every engagement, designing scalable, production-ready cloud architecture across the full AWS ecosystem — from CloudFront and Route53 to API Gateway and beyond. Grounded in the AWS Well-Architected Framework, every system we deliver is built for security, reliability, and operational excellence from day one, with architecture decisions that won't need rethinking tomorrow.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <div class="about-sub-content">
+                <h3>Cloud Migrations</h3>
+                <p>End-to-end cloud migrations built around your actual workload, whether that's lift-and-shift, re-platforming, or a full re-architecture. We assess your existing environment, design the target state, and manage the cutover to minimise downtime. Resource sizing is right-sized from the start, keeping costs lean without sacrificing reliability or performance under load.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-file-code"></i></div>
+            <div class="about-sub-content">
+                <h3>Infrastructure as Code</h3>
+                <p>Terraform and Ansible-driven environments that are reproducible, version-controlled, and consistent across development, staging, and production. We build modular Terraform configurations, including complex reusable modules, with remote state managed via S3 and DynamoDB for locking and consistency. Beyond core resources, we extend IaC coverage to Helm chart deployments, Docker provisioning, and shell-based automation, keeping your entire stack under version control.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="about-sub-content">
+                <h3>Security Hardening</h3>
+                <p>Security embedded at every layer of the stack, not bolted on at the end. We enforce least-privilege IAM policies, harden network boundaries with security groups and NACLs, and encrypt data at rest and in transit. Vulnerability scanning and compliance checks are built into the pipeline so your infrastructure is hardened before it reaches production, and stays that way.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+            <div class="about-sub-content">
+                <h3>High Availability</h3>
+                <p>Infrastructure designed for high availability from day one, with multi-AZ deployments, load balancing, and automated failover built in from the start. We target defined uptime SLAs, design for graceful degradation under failure conditions, and use health checks and circuit breakers to prevent cascading outages, treating downtime and latency spikes as design failures, not operational surprises.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="about-sub-content">
+                <h3>Monitoring & Observability</h3>
+                <p>Cloud-native monitoring stacks with real-time visibility into workload health and system performance. We instrument for the metrics that matter — CPU, memory, request rates, latency percentiles, error rates, and disk I/O — alongside scaling signals like queue depth and custom CloudWatch metrics that feed directly into autoscaling decisions. Alerting pipelines and distributed tracing ensure you're never operating blind.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="about-service" id="kubernetes-management">
+    <h2>Kubernetes Management</h2>
+    <div class="about-tech-strip">
+        <h4>Technologies We Work With</h4>
+        <div class="about-tech-logos">
+            <span class="about-tech-logo" data-tooltip="Kubernetes"><img src="{{ url_for('static', path='kubernetes.png') }}" alt="Kubernetes"></span>
+            <span class="about-tech-logo" data-tooltip="HashiCorp Vault"><img src="{{ url_for('static', path='vault.svg') }}" alt="HashiCorp Vault"></span>
+            <span class="about-tech-logo" data-tooltip="HashiCorp Consul"><img src="{{ url_for('static', path='consul.svg') }}" alt="HashiCorp Consul"></span>
+            <span class="about-tech-logo" data-tooltip="HashiCorp Nomad"><img src="{{ url_for('static', path='nomad.svg') }}" alt="HashiCorp Nomad"></span>
+            <span class="about-tech-logo" data-tooltip="ArgoCD"><img src="{{ url_for('static', path='argo.png') }}" alt="ArgoCD"></span>
+            <span class="about-tech-logo" data-tooltip="Grafana"><img src="{{ url_for('static', path='grafana.svg') }}" alt="Grafana"></span>
+            <span class="about-tech-logo" data-tooltip="Prometheus"><img src="{{ url_for('static', path='prometheus.png') }}" alt="Prometheus"></span>
+            <span class="about-tech-logo" data-tooltip="NGINX"><img src="{{ url_for('static', path='nginx.svg') }}" alt="NGINX"></span>
+        </div>
+    </div>
+    <div class="about-sub-items">
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-cubes"></i></div>
+            <div class="about-sub-content">
+                <h3>Managed Kubernetes Services</h3>
+                <p>Full cluster lifecycle management on EKS, GKE, and AKS, from initial provisioning through to day-two operations. We own the platform so your engineers can own the product.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-user-lock"></i></div>
+            <div class="about-sub-content">
+                <h3>Zero-Trust Cluster Security</h3>
+                <p>Modern Kubernetes security goes well beyond basic access control. Credentials are short-lived, workloads are isolated, and least-privilege is enforced at runtime. Tools like OIDC-backed IRSA, pod and container security contexts, and granular RBAC policies are how we get there, but the approach is always shaped around your threat model and compliance requirements.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-network-wired"></i></div>
+            <div class="about-sub-content">
+                <h3>Service Mesh & Ingress Architecture</h3>
+                <p>Kubernetes networking at production scale demands more than default configurations. We design the right stack for your topology, whether that's Cilium with BGP peering or overlay routing, NGINX Ingress for external traffic, or HashiCorp's service mesh for secure inter-service communication.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-arrows-up-to-line"></i></div>
+            <div class="about-sub-content">
+                <h3>Autoscaling & Resilience</h3>
+                <p>Your platform should scale to demand without anyone touching it. We use tools like HPA, AWS Cluster Autoscaler, and proactive pre-warming strategies to eliminate cold-start latency before it reaches your users, with the right combination depending on your traffic profile.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-code-branch"></i></div>
+            <div class="about-sub-content">
+                <h3>GitOps & CI/CD</h3>
+                <p>Automated, auditable deployments from commit to production with no manual handoffs and no environment drift. We typically use GitHub Actions and AWS CodeBuild with Helm managing releases and rollbacks, adapted to whatever stack your team is already on.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-gauge"></i></div>
+            <div class="about-sub-content">
+                <h3>Unified Observability</h3>
+                <p>Full visibility into cluster health, workload performance, and application behaviour, surfaced in a single coherent stack. Prometheus, Grafana, Datadog, FluentBit, and CloudWatch are the tools we reach for, composed into a setup that fits your infrastructure.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="about-service" id="devops-support">
+    <h2>DevOps Support</h2>
+    <div class="about-tech-strip">
+        <h4>Technologies We Work With</h4>
+        <div class="about-tech-logos">
+            <span class="about-tech-logo" data-tooltip="Terraform"><img src="{{ url_for('static', path='terraform.png') }}" alt="Terraform"></span>
+            <span class="about-tech-logo" data-tooltip="GitHub Actions"><img src="{{ url_for('static', path='githubactions.svg') }}" alt="GitHub Actions"></span>
+            <span class="about-tech-logo" data-tooltip="SonarQube"><img src="{{ url_for('static', path='sonarqube.svg') }}" alt="SonarQube"></span>
+            <span class="about-tech-logo" data-tooltip="Ansible"><img src="{{ url_for('static', path='ansible.svg') }}" alt="Ansible"></span>
+            <span class="about-tech-logo" data-tooltip="AWS CodeBuild"><img src="{{ url_for('static', path='codebuild.png') }}" alt="AWS CodeBuild"></span>
+            <span class="about-tech-logo" data-tooltip="AWS CodeDeploy"><img src="{{ url_for('static', path='codedeploy.png') }}" alt="AWS CodeDeploy"></span>
+        </div>
+    </div>
+    <div class="about-sub-items">
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-gears"></i></div>
+            <div class="about-sub-content">
+                <h3>DevOps Consulting & Managed Services</h3>
+                <p>Shipping fast without breaking things is the defining challenge of modern engineering teams, and it's exactly what we solve. Our DevOps consulting services cover everything from pipeline design and infrastructure automation through to security hardening and team enablement, tailored to where your team is today and where it needs to go.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-rotate"></i></div>
+            <div class="about-sub-content">
+                <h3>CI/CD Pipeline Design</h3>
+                <p>A reliable release process shouldn't require heroics. We design and implement CI/CD pipelines that automate the path from code to production using tools like GitHub Actions, GitLab CI, AWS CodePipeline, and Jenkins, adapted to whatever your team is already working with.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-file-code"></i></div>
+            <div class="about-sub-content">
+                <h3>Infrastructure as Code</h3>
+                <p>Reproducible, version-controlled environments across development, staging, and production with no configuration drift and no "works on my machine." We use Terraform, Ansible, and Packer to make your infrastructure consistent, auditable, and easy to change.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-lock"></i></div>
+            <div class="about-sub-content">
+                <h3>DevSecOps</h3>
+                <p>Security belongs in the pipeline, not bolted on after the fact. We embed secrets management, vulnerability scanning, and security hardening directly into your release process so every deployment is as secure as your code review.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-terminal"></i></div>
+            <div class="about-sub-content">
+                <h3>Automation & Configuration Auditing</h3>
+                <p>Manual verification doesn't scale. We build Python and Bash automation tooling for resource inventory, configuration drift detection, and policy validation, giving your team confidence in release readiness without the overhead of manual checks.</p>
+            </div>
+        </div>
+
+        <div class="about-sub-item">
+            <div class="about-sub-icon"><i class="fa-solid fa-map"></i></div>
+            <div class="about-sub-content">
+                <h3>DevOps Assessment & Roadmap</h3>
+                <p>Not sure where your current setup is falling short? We audit your pipeline maturity, identify the gaps costing you time and reliability, and deliver a concrete roadmap to fix them along with the documentation and knowledge transfer to make sure your team walks away capable, not dependent.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<p class="about-tech-disclaimer">All product names and logos are trademarks of their respective owners.</p>
+
+<section class="about-cta">
+    <h2>Ready to ship?</h2>
+    <p>Tell us where you are and where you want to go. <a href="/#contact">Let's talk.</a></p>
+</section>
+{% endblock %}

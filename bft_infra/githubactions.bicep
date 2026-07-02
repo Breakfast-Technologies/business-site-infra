@@ -37,8 +37,6 @@ resource customRole 'Microsoft.Authorization/roleDefinitions@2022-04-01' = {
           'Microsoft.KeyVault/vaults/secrets/read'
           'Microsoft.Web/sites/hostNameBindings/read'
           'Microsoft.Web/certificates/read'
-          'Microsoft.OperationalInsights/workspaces/write'
-          'Microsoft.Insights/diagnosticSettings/write'
         ]
         notActions: []
       }

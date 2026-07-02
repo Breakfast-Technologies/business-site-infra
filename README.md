@@ -24,6 +24,8 @@ A business website built with Python and FastAPI, served via Uvicorn and deploye
 - **Templating:** Jinja2
 - **Server:** Uvicorn
 - **Email:** Transactional email via API (key managed through Azure Key Vault)
+- **CAPTCHA:** Cloudflare Turnstile (bot protection on contact form)
+- **Rate limiting:** slowapi (per-IP limit on contact form submissions)
 - **Styling:** HTML/CSS with DM Sans (Google Fonts) and Font Awesome icons
 
 ### Structure
@@ -38,7 +40,8 @@ business_site/
 │   ├── about.html                  # About page (services detail, tech stack)
 │   └── contact.html                # Contact form success page
 ├── static/
-│   └── style.css                   # Full site stylesheet
+│   ├── style.css                   # Full site stylesheet
+│   └── script.js                   # Client-side logic (enables submit button on CAPTCHA pass)
 └── .github/
     └── workflows/
         └── deploy-app.yml          # CI/CD pipeline — deploys app to Azure App Service
@@ -50,7 +53,7 @@ business_site/
 |--------|------|-------------|
 | GET | `/` | Home page |
 | GET | `/about` | About page |
-| POST | `/contact` | Contact form submission — sends email and returns success page |
+| POST | `/contact` | Contact form submission — verifies CAPTCHA, rate-limited to 3/hour per IP, sends email and returns success page |
 
 ### CI/CD
 
@@ -69,7 +72,7 @@ Azure Subscription
 └── Resource Group
     ├── App Service Plan          (Linux, B1 Basic)
     ├── App Service               (Python 3.11, system-assigned managed identity)
-    ├── Key Vault                 (RBAC-enabled, stores email API key)
+    ├── Key Vault                 (RBAC-enabled, stores email API key and CAPTCHA secret key)
     ├── Managed Certificate       (free TLS certificate for custom domain)
     └── SSL Binding               (SNI-based HTTPS enforcement)
 ```
@@ -93,13 +96,17 @@ bft_infra/
 
 ### Key Design Decisions
 
-**Secrets management** — The email API key is stored in Azure Key Vault and injected into the App Service at runtime via a Key Vault reference in app settings. The key never appears in application code or environment files.
+**Secrets management** — The email API key and CAPTCHA secret key are stored in Azure Key Vault and injected into the App Service at runtime via Key Vault references in app settings. Neither key appears in application code or environment files.
 
 **Managed identity** — The App Service uses a system-assigned managed identity, granted the Key Vault Secrets User role. This means the app authenticates to Key Vault without any credentials — Azure handles it transparently.
 
 **GitHub Actions authentication** — Deployment pipelines authenticate to Azure using OpenID Connect (OIDC) via a federated credential on an Entra ID app registration. No Azure credentials are stored in GitHub. A custom least-privilege role defines exactly what the pipeline is permitted to do.
 
 **TLS** — A free Azure-managed certificate is provisioned for the custom domain. The certificate lifecycle (issuance, renewal) is handled entirely by Azure.
+
+**Bot protection** — The contact form is protected by Cloudflare Turnstile. The widget runs a passive browser challenge and only enables the submit button on success. The token is verified server-side against the Cloudflare API before any email is sent. The CAPTCHA secret key is stored in Key Vault and never exposed in source code.
+
+**Rate limiting** — The `POST /contact` endpoint is rate-limited to 3 requests per hour per IP using slowapi. This is enforced server-side and returns a 429 response once the limit is exceeded, providing a secondary layer of protection independent of the CAPTCHA.
 
 ### CI/CD
 
